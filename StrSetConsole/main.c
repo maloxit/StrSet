@@ -1,3 +1,10 @@
+#ifdef _DEBUG
+#define _CRTDBG_MAP_ALLOC
+#endif // _DEBUG
+#include <stdlib.h>
+#ifdef _DEBUG
+#include <crtdbg.h>
+#endif // _DEBUG
 #include "../StrSetLib/StrSetLib.h"
 #include "StrSetConsole.h"
 #include <stdio.h>
@@ -70,5 +77,8 @@ int main(void)
     printf("\n");
   } while (!isExit);
   SetListFree(setList);
+#ifdef _DEBUG
+  _CrtDumpMemoryLeaks();
+#endif // _DEBUG
   return 0;
 }

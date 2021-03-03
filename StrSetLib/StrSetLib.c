@@ -175,6 +175,7 @@ OUT_CODE SetListFree(SetList_t* setList)
     SetFree(item->set);
     free(item);
   }
+  free(setList);
   return OC_OK;
 }
 
